@@ -1,0 +1,28 @@
+{
+  "layers": 4,
+  "tileRadius": 3,
+  "tileSize": 1.1,
+  "layerGap": 9,
+  "layerColors": [
+    "#a58bff",
+    "#ff8cc6",
+    "#5fe0cf",
+    "#ffd36b"
+  ],
+  "tileDelayMs": 800,
+  "minPlayers": 2,
+  "maxPlayers": 8,
+  "countdownMs": 3000,
+  "finishGraceMs": 1500,
+  "winnerMs": 7000,
+  "ghostHeight": 1.2,
+  "moveSpeed": 5.6,
+  "jumpSpeed": 7.2,
+  "gravity": 13,
+  "fallSpeed": 16,
+  "floatGravity": 4,
+  "floatMs": 320,
+  "diveSpeed": 12,
+  "diveMs": 220,
+  "diveCooldownMs": 1400
+}
