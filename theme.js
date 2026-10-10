@@ -171,7 +171,9 @@ button { font: inherit; }
 .mw-card-x:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); }
 .mw-kart { position: fixed; inset: 0; z-index: 60; background: #1a1036; }
 .mw-kart iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-.mw-kart-close { position: absolute; left: 12px; top: max(64px, calc(var(--mobius-safe-top, 0px) + 56px)); z-index: 2; opacity: .9; }
+/* Top right: each game keeps its own status text top left and touch controls in the bottom corners. */
+.mw-kart-close { position: absolute; right: max(12px, env(safe-area-inset-right)); top: max(64px, calc(var(--mobius-safe-top, 0px) + 56px)); z-index: 2; opacity: .9; }
+.mw-kart:not(.mw-ghostdrop) .mw-kart-close { top: max(152px, calc(var(--mobius-safe-top, 0px) + 152px)); } /* below Kart's mini-map */
 .mw-kart-board { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 4px; counter-reset: kart; }
 .mw-kart-board li { display: flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 10px; background: var(--surface); font-size: 13px; counter-increment: kart; }
 .mw-kart-board li::before { content: counter(kart); width: 14px; color: var(--muted); font-weight: 700; }
