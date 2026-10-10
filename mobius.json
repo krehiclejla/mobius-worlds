@@ -14,8 +14,7 @@
   "service": {
     "id": "mobius-worlds",
     "entry": "service.py",
-    "access": "public",
-    "public_requests_per_minute": 600
+    "access": "public"
   },
   "source_files": [
     "api.js",

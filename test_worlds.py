@@ -509,7 +509,7 @@ def test_browser_guest_from_public_link():
   me = next(p for p in snap["players"] if p["pid"] == seat["pid"])
   assert me["name"] == "Visitor" and me["home"] == "browser" and snap["you"] == seat["pid"]
   assert snap["poll_ms"] >= rooms.GUEST_FASTEST_MS, "browser guests share the public door's budget"
-  assert snap["poll_ms"] == rooms.GUEST_FASTEST_MS, "a lone guest syncs about four times a second"
+  assert snap["poll_ms"] == int(60_000 / rooms.PUBLIC_BUDGET_PER_MIN), "a lone guest syncs about once a second"
   ok("public/leave", {"code": code, "pid": seat["pid"], "secret": seat["secret"]}, public=True)
   host_view = ok("sync", {"origin": "https://host.example", "code": code, "actions": [], "since": 0})
   assert seat["pid"] not in [p["pid"] for p in host_view["players"]]

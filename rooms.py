@@ -32,9 +32,10 @@ AWAY_AFTER_MS = 30_000
 TRAIL_MS = 5000
 TRAIL_MAX = 28
 DROP_AFTER_MS = 120_000
-# Worlds declares 600 public requests a minute (mobius.json); remote guests share
-# 90% of it, since behind a hosting proxy they can all count as one caller.
-PUBLIC_BUDGET_PER_MIN = 540
+# A public app-service door accepts 60 requests a minute per caller on standard
+# Möbius; remote guests share 90% of it, since behind a hosting proxy they can
+# all count as one caller.
+PUBLIC_BUDGET_PER_MIN = 54
 GUEST_FASTEST_MS = 250  # about four syncs a second per guest at most
 # Ghost colours offered in the customizer; the first is the Hackaton Rewards pal grey.
 GHOST_COLORS = (
@@ -426,7 +427,7 @@ def apply_actions(room: dict, pid: str, actions, now: int) -> None:
 def poll_interval(room: dict, viewer: dict, now: int) -> int:
   """Coalesced sync cadence that keeps every remote guest inside the budget.
 
-  The host's public door accepts the requests a minute Worlds declares, and
+  The host's public door accepts a fixed number of requests a minute, and
   behind a shared proxy every guest may count as the same caller. Split a safe
   share of it between remote guests; the host's own browser uses its private lane.
   """
